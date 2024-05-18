@@ -16,8 +16,9 @@ class Event(models.Model):
         ART_EXHIBITION = 'AE', 'Art Exhibition' 
         FESTIVAL = 'FV', 'Festival'
         OTHERS = 'OT', 'Others'
-    
-    category = models.CharField(choices=Category.choices, default=Category.OTHERS)
+
+    category = models.CharField(max_length=2, choices=Category.choices, 
+                                default=Category.OTHERS)
     address = models.CharField(max_length=75, blank=True, null=True)
     location = models.CharField(max_length=50)
     link = models.URLField(blank=True, null=True)
@@ -26,15 +27,15 @@ class Event(models.Model):
         ONLINE = 'ON', 'ONLINE',
         HYBRID = 'HB', 'HYBRID'
 
-    format = models.CharField(choices=Format.choices)
+    format = models.CharField(max_length=2, choices=Format.choices)
     value = models.DecimalField(default=0.00, max_digits=6, decimal_places=2)
     pix_key = models.CharField(max_length=77, blank=True, default='')
     pix_key_owner = models.CharField(max_length=50, blank=True, default='')
     bank_name = models.CharField(max_length=25, blank=True, default='')
     pdf_link = models.URLField(blank=True, null=True, unique=True)
     questionary_link = models.URLField(blank=True, null=True, unique=True)
-    profile_picture = models.ImageField(upload_to='images/events/profile_pictures')
-    project_FK = models.ForeignKey(to="project_app.Project", on_delete = models.CASCADE) #Waiting project model to be defined
+    #profile_picture = models.ImageField(upload_to='images/events/profile_pictures') TODO: Install Pillow(?)
+    #project_FK = models.ForeignKey(to="project_app.Project", on_delete = models.CASCADE) Waiting project model to be defined
 
 
 class Review(models.Model):
