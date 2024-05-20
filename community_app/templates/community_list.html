@@ -8,8 +8,8 @@
 <body>
     <h1>Lista de Comunidades</h1>
     <ul>
-        {% for comunity in communities %}
-            <li>{{ comunity.name }}</li>
+        {% for community in communities %}
+            <li>{{community.id}} {{ community.name }}</li>
         {% endfor %}
     </ul>
 </body>

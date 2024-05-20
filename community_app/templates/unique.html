@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidade {{ comunidade.name }}</title>
+    <title>Comunidade {{ community.name }}</title>
 </head>
 <body>
-    <h1> nome </h1>
-    <h2> descricao </h2>
+    <h1> {{ community.name }} </h1>
+    <h2> {{ community.description }} </h2>
+    <h2> {{ community.latitude }} </h2>
+    <h2> {{ community.longitude }} </h2>
 </body>
 </html>
