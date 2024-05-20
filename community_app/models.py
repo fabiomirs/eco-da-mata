@@ -5,10 +5,17 @@ class Community(models.Model):
     name = models.CharField(max_length=100)
     link = models.CharField(max_length=100)
     latitude = models.FloatField()
-    longitude = models. FloatField()
+    longitude = models.FloatField()
     description = models.TextField()
     category = models.CharField(max_length=100, choices=(('COMMUNITY', 'Comunidade'),('TOURIST SPOT', 'Ponto Turístico')), default='COMMUNITY')
     logo = models.ImageField()
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name_plural = "communities"
+        
 
 class News(models.Model):
     title = models.CharField(max_length=100)
