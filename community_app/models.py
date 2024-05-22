@@ -25,3 +25,9 @@ class News(models.Model):
     category = models.CharField(max_length=100)
     #on_delete = models.CASCADE deleta todas as notícias associadas às comunidades excluídas
     community_key = models.ForeignKey(Community, on_delete=models.CASCADE, limit_choices_to={'category': 'COMMUNITY'})
+
+    class Meta:
+        verbose_name_plural = "News"
+
+    def __str__(self):
+        return self.title
