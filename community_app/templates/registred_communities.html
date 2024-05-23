@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Comunidades</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Comunidades Registradas{% endblock %}
+
+{% block content %}
+<section>
     <h1>Lista de Comunidades</h1>
     <ul>
         {% for community in communities %}
-            <li>{{ community.id }} {{ community.name }}</li>
+          <li class="nav-link">
+            <a href="{{ community.pk }}">{{ community.id }} {{ community.name }}</a>
+          </li>
         {% endfor %}
-    </ul>
-</body>
-</html>
+      </ul>
+      
+</section>
+{% endblock %}

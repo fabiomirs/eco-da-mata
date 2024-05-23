@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidade {{ community.name }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}{{ community.name }}{% endblock %}
+
+{% block content %}
+<section>
     <h1> {{ community.name }} </h1>
-    <h1> {{ community.logo }} </h1>
     <h2> {{ community.description }} </h2>
     <h2> {{ community.latitude }} </h2>
     <h2> {{ community.longitude }} </h2>
-</body>
-</html>
+</section>
+{% include 'registred_news.html' %}
+{% endblock %}

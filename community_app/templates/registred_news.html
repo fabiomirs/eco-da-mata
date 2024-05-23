@@ -1,0 +1,12 @@
+{% block content %}
+<section>
+    <h1>Notícias</h1>
+    <ul>
+        {% for new in news %}
+          <li class="nav-link">
+            <a href="{{ new.pk }}">{{ new.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>      
+</section>
+{% endblock %}

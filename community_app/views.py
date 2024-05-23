@@ -9,4 +9,5 @@ def registred_communities(request):
 
 def single_community(request, id):
     community = get_object_or_404(Community, pk=id)
-    return render(request, 'single_community.html', {'community': community} )
+    news = News.objects.filter(community_key=id)
+    return render(request, 'single_community.html', {'community': community, 'news': news} )
