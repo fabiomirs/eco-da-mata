@@ -1,0 +1,92 @@
+
+
+{% block conteudo %}
+<div class="form-wrapper">
+    <h3>Cadastrar</h3>
+    <p class="lead">
+        Preencha todos os campos obrigatoriamente.
+    </p>
+    <hr>
+    <form action="" method="POST" class="styled-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+{% endblock %}
+
+<style>
+    body {
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .form-wrapper {
+        text-align: center;
+    }
+
+    .styled-form {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+        text-align: left;
+    }
+
+    .styled-form h3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .styled-form p.lead {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .styled-form hr {
+        margin-bottom: 20px;
+    }
+
+    .styled-form label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .styled-form input, .styled-form textarea, .styled-form select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 20px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .styled-form input[type="date"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .styled-form button[type="submit"] {
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .styled-form button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
