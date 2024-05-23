@@ -3,10 +3,10 @@ from django.http import HttpResponse
 from .models import Community, News
 
 # Create your views here.
-def communit_list(request): 
+def registred_communities(request): 
     communities = get_list_or_404(Community, category='COMMUNITY')
-    return render(request, 'community_list.html', {'communities' : communities})
+    return render(request, 'registred_communities.html', {'communities' : communities})
 
-def community_unique(request, id):
+def single_community(request, id):
     community = get_object_or_404(Community, pk=id)
-    return render(request, 'unique.html', {'community': community} )
+    return render(request, 'single_community.html', {'community': community} )

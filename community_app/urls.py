@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import communit_list
+from .views import registred_communities, single_community
 
 urlpatterns = [
-    path('', communit_list, name="communit_list"),
+    path('', registred_communities, name="registred_communities"),
+    path('<int:id>', single_community, name='single_community' )
 ]
