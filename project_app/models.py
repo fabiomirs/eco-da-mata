@@ -15,5 +15,4 @@ class Project(models.Model):
     
 class Management(models.Model):
     project = models.ForeignKey(to=Project, on_delete=models.CASCADE)
-    #people = models.ForeignKey("people_app.People", on_delete=models.CASCADE) # has to be implemented after those models been created
-
+    people = models.ForeignKey(to="people_app.People", on_delete=models.CASCADE) 
