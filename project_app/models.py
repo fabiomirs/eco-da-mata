@@ -8,7 +8,6 @@ class Project(models.Model):
     telephone_number = models.CharField(max_length=20) # perhaps we can use 'django-phonenumber-field' extension.
     email = models.EmailField(max_length=254)
     community_key = models.ForeignKey(to="community_app.Community", on_delete=models.CASCADE) 
-    event_key = models.ForeignKey(to="event_app.Event", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
