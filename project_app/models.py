@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Project(models.Model):
     name = models.CharField(max_length=50)
-    desctiption = models.CharField(max_length=800)
+    description = models.CharField(max_length=800)
     social_network_link = models.URLField(max_length=200)
     telephone_number = models.CharField(max_length=20) # perhaps we can use 'django-phonenumber-field' extension.
     email = models.EmailField(max_length=254)
