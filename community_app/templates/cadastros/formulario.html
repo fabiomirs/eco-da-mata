@@ -1,4 +1,4 @@
-
+{% extends 'base.html' %}
 
 {% block conteudo %}
 <div class="form-wrapper">
@@ -9,7 +9,17 @@
     <hr>
     <form action="" method="POST" class="styled-form">
         {% csrf_token %}
-        {{ form.as_p }}
+        <label for="name">Nome: </label>
+        {{ form.name }}
+        <label for="link">Link: </label>
+        {{ form.link }}
+        <label for="latitude">Latitude: </label>
+        {{ form.latitude }}
+        <label for="longitude">Longitude: </label>
+        {{ form.longitude }}
+        <label for="description">Descrição: </label>
+        {{ form.description }}
+        
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
 </div>

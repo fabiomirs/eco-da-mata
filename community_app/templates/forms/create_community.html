@@ -1,0 +1,51 @@
+{% extends '../base.html' %}
+
+{% block title %}Registrar Comunidades{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2 class="form-title">Preencha o Formulário</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">Nome</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.link.id_for_label }}">Link</label>
+            {{ form.link }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.latitude.id_for_label }}">Latitude</label>
+            {{ form.latitude }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.longitude.id_for_label }}">Longitude</label>
+            {{ form.longitude }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Descrição</label>
+            {{ form.description }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.category.id_for_label }}">Categoria</label>
+            {{ form.category }}
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+{% endblock %}
+<style>
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+</style>
