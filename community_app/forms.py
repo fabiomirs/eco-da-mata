@@ -27,4 +27,3 @@ class NewsForm(forms.ModelForm):
             'community_key': forms.Select(attrs={'class': 'form-control'}),
         }
     
-

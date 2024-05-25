@@ -38,3 +38,7 @@ def news_create(request):
         form = NewsForm()
         return render(request, 'cadastros/news_form.html', {"form" : form} )    
  
+def community_delete(request, id):
+    community = get_object_or_404(Community, id=id)
+    community.delete()
+    return redirect('registred_communities')
