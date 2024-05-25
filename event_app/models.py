@@ -42,11 +42,11 @@ class Review(models.Model):
     person_name = models.CharField(max_length=50)
     phrase = models.CharField(max_length=100)
     class Grade(models.IntegerChoices):
-        GRADE_1 = 1
-        GRADE_2 = 2
-        GRADE_3 = 3
-        GRADE_4 = 4
-        GRADE_5 = 5
+        GRADE_1 = 1, '1 - Very bad'
+        GRADE_2 = 2, '2 - Bad'
+        GRADE_3 = 3, '3 - Average'
+        GRADE_4 = 4, '4 - Good'
+        GRADE_5 = 5, '5 - Very good'
     
     grade = models.IntegerField(choices=Grade.choices)
     event_FK = models.ForeignKey(to=Event, on_delete=models.CASCADE)
