@@ -1,16 +1,19 @@
 from django.views import View
-from django.shortcuts import render, get_list_or_404, get_object_or_404
+from django.views.generic import ListView, DetailView
 from .models import Event
 
 # Create your views here.
-class RegisteredEvents(View):
-    def get(self, request):
-        events = get_list_or_404(Event)
+class EventList(ListView):
+    model = Event
+    template_name = 'event_list.html'
+    context_object_name = 'events'      
+    paginate_by = 10
 
-        return render(request, 'event_list.html', {'events' : events})
+    def get_queryset(self):
+        return Event.objects.all().order_by('start_date')
 
-class SingleEvent(View):
-    def get(self, request, event_id):
-        event = get_object_or_404(Event, pk=event_id)
-
-        return render(request, 'detailed_event.html', {'event' : event})
+class DetailedEvent(DetailView):
+    model = Event
+    template_name = 'detailed_event.html'  
+    context_object_name = 'event'          
+    pk_url_kwarg = 'event_id'
