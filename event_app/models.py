@@ -23,9 +23,9 @@ class Event(models.Model):
     location = models.CharField(max_length=50)
     link = models.URLField(blank=True, null=True)
     class Format(models.TextChoices):
-        IN_PERSON = 'IP', 'IN_PERSON',
-        ONLINE = 'ON', 'ONLINE',
-        HYBRID = 'HB', 'HYBRID'
+        IN_PERSON = 'IP', 'In person',
+        ONLINE = 'ON', 'Online',
+        HYBRID = 'HB', 'Hybrid'
 
     format = models.CharField(max_length=2, choices=Format.choices)
     value = models.DecimalField(default=0.00, max_digits=6, decimal_places=2)
