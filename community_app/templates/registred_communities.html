@@ -6,12 +6,16 @@
 <section>
     <h1>Lista de Comunidades</h1>
     <ul>
-        {% for community in communities %}
-          <li class="nav-link">
-            <a href="{{ community.pk }}">{{ community.id }} {{ community.name }}</a>
-          </li>
-        {% endfor %}
-      </ul>
+      {% for community in communities %}
+        <li class="nav-link">
+          <a href="{{ community.pk }}">{{ community.pk }} {{ community.name }}</a>
+            <form action="{% url 'delete_community' community.pk %}" method="post" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+            </form>
+        </li>
+      {% endfor %}
+    </ul>
       
 </section>
 {% endblock %}

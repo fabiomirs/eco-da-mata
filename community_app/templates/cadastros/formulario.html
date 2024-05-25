@@ -1,15 +1,28 @@
+{% extends '../base.html' %}
 
+{% block title %}Registrar Comunidade{% endblock %}
 
-{% block conteudo %}
+{% block content %}
 <div class="form-wrapper">
     <h3>Cadastrar</h3>
     <p class="lead">
         Preencha todos os campos obrigatoriamente.
     </p>
     <hr>
-    <form action="" method="POST" class="styled-form">
+    <form method="post" enctype="multipart/form-data" >
         {% csrf_token %}
-        {{ form.as_p }}
+        <label for="name">Nome: </label>
+        {{ form.name }}
+        <label for="link">Link: </label>
+        {{ form.link }}
+        <label for="latitude">Latitude: </label>
+        {{ form.latitude }}
+        <label for="longitude">Longitude: </label>
+        {{ form.longitude }}
+        <label for="description">Descrição: </label>
+        {{ form.description }}
+        <label for="description">Categoria: </label>
+        {{ form.category }}
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
 </div>
