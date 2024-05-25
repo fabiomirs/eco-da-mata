@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.urls import reverse
 from .models import Community, News
-from .forms import CommunityForm
+from .forms import CommunityForm, NewsForm
+
 
 
 # Create your views here.
@@ -25,4 +27,14 @@ def community_create(request):
     else:
         form = CommunityForm()
         return render(request, 'cadastros/formulario.html', {"form" : form} )    
+
+def news_create(request):
+    if request.method == "POST":
+        form = NewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            news = form.save()
+        return redirect(reverse('single_community', args=[news.community_key.id]))
+    else:
+        form = NewsForm()
+        return render(request, 'cadastros/news_form.html', {"form" : form} )    
  
