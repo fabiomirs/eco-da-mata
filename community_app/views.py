@@ -1,13 +1,14 @@
-from django.shortcuts import render, get_list_or_404, get_object_or_404
+from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Community, News
-from django.views.generic.edit import CreateView
-from django.urls import reverse_lazy
+from .forms import CommunityForm
+
 
 # Create your views here.
 def registred_communities(request): 
     communities = get_list_or_404(Community, category='COMMUNITY')
     return render(request, 'registred_communities.html', {'communities' : communities})
+
 
 def single_community(request, id):
     community = get_object_or_404(Community, pk=id)
@@ -15,16 +16,13 @@ def single_community(request, id):
     return render(request, 'single_community.html', {'community': community, 'news': news} )
 
 
-class CommunityCreate(CreateView):
-    model = Community
-    fields = ["name", "link", "latitude", "longitude", "description",
-              "category", "logo"]
-    template_name = 'cadastros/formulario.html'
-    success_url = reverse_lazy('comunidade/')
-
-class NewsCreate(CreateView):
-    model = News
-    fields = ["title", "link", "text", "date",
-              "category"]
-    template_name = 'cadastros/formulario.html'
-    success_url = reverse_lazy('comunidade/')
+def community_create(request):
+    if request.method == "POST":
+        form = CommunityForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect ("registred_communities")
+    else:
+            form = CommunityForm()
+            return render(request, 'cadastros/formulario.html', {"form" : form} )    
+ 
