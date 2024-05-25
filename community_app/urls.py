@@ -1,10 +1,9 @@
 from django.contrib import admin
-from django.urls import path, include
-from .views import registred_communities, single_community, CommunityCreate, NewsCreate
+from django.urls import path
+from .views import registred_communities, single_community, community_create
 
 urlpatterns = [
-    path('listar/', registred_communities, name="registred_communities"),
-    path('criar/comunidade/', CommunityCreate.as_view(), name="communit_create"),
-    path('criar/noticia/', NewsCreate.as_view(), name="news_create"),
-    path('listar/<int:id>', single_community, name='single_community' )
+    path('', registred_communities, name="registred_communities"),
+    path('create/', community_create, name="communit_create"),
+    path('<int:id>', single_community, name='single_community' )
 ]
