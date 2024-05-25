@@ -7,7 +7,7 @@
         Preencha todos os campos obrigatoriamente.
     </p>
     <hr>
-    <form action="" method="POST" class="styled-form">
+    <form method="post" enctype="multipart/form-data" >
         {% csrf_token %}
         <label for="name">Nome: </label>
         {{ form.name }}
