@@ -1,7 +1,7 @@
 from django import forms
 from .models import Community, News
 
-class CreateCommunityForm(forms.ModelForm):
+class CommunityForm(forms.ModelForm):
     class Meta: 
         model = Community
         fields = ['name', 'link', 'latitude', 'longitude', 'description', 'category']

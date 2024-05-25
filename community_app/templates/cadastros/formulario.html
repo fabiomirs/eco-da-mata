@@ -1,6 +1,8 @@
-{% extends 'base.html' %}
+{% extends '../base.html' %}
 
-{% block conteudo %}
+{% block title %}Registrar Comunidade{% endblock %}
+
+{% block content %}
 <div class="form-wrapper">
     <h3>Cadastrar</h3>
     <p class="lead">
@@ -19,6 +21,8 @@
         {{ form.longitude }}
         <label for="description">Descrição: </label>
         {{ form.description }}
+        <label for="description">Categoria: </label>
+        {{ form.category }}
         
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>

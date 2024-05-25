@@ -23,6 +23,6 @@ def community_create(request):
             form.save()
         return redirect ("registred_communities")
     else:
-            form = CommunityForm()
-            return render(request, 'cadastros/formulario.html', {"form" : form} )    
+        form = CommunityForm()
+        return render(request, 'cadastros/formulario.html', {"form" : form} )    
  
