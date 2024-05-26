@@ -13,9 +13,11 @@
               {% csrf_token %}
               <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
             </form>
+            <form action="{% url 'update_community' community.pk %}" method="get" style="display:inline;">
+              <button type="submit" class="btn btn-primary btn-sm">Atualizar</button>
+            </form>
         </li>
       {% endfor %}
     </ul>
-      
 </section>
 {% endblock %}
