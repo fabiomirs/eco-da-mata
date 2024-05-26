@@ -1,9 +1,14 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.views import View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DeleteView
 from django.urls import reverse_lazy
 from .models import People
 from .forms import PeopleForm
+from django.views.generic.edit import UpdateView
+
+
+
+
 
 class PeopleList(View):
     def get(self, request):
@@ -26,12 +31,31 @@ class PeopleDetails(View):
     
     
     
+    
 class PeopleCreate(CreateView):
-    template_name = "register_people.html"
+    template_name = "people_register.html"
     model = People
     form_class = PeopleForm
     success_url = reverse_lazy('people_list')
     
     
+    
+    
+class PeopleUpdate(UpdateView):
+    template_name = "people_update.html"
+    model = People
+    fields = ["name",
+             "description",
+            "institutional_email",
+            "personal_page_link",
+            "category",
+            "subcategory_key"]
 
+    
+    
+class PeopleDelete(DeleteView):
+    template_name = "exclui.html"
+    model = People 
+    context_object_name = 'pessoas'
+    success_url = reverse_lazy("people_list")
     
