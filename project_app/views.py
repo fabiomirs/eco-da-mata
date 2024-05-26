@@ -5,11 +5,11 @@ from .forms import ProjectForm
 # Create your views here.
 def get_all_projects(request):
     projects = Project.objects.all()
-    return render(request, 'projects.html', context={'projects':projects})
+    return render(request, 'projects.html', {'projects':projects})
 
 def get_single_project(request, pk):
     project = Project.objects.get(id=pk)
-    return render(request, 'single_project.html', context={'project':project})
+    return render(request, 'single_project.html', {'project':project})
 
 
 def create_project(request):
@@ -21,4 +21,13 @@ def create_project(request):
     else:
         new_project = ProjectForm()
         return render(request, 'forms/new_project.html', {'new_project':new_project})
+    
+def delete_project(request, pk):
+    project = Project.objects.get(id=pk)
+    if request.method == 'POST':
+        project.delete()
+        return redirect('all_projects')
+    else:
+        project = Project.objects.get(id=pk)
+        return render(request, 'delete_project.html', {'project':project})
     
