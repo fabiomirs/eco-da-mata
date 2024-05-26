@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Eventos</title>
+    <title>Event List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,7 +39,7 @@
     </style>
 </head>
 <body>
-    <h1>Lista de Eventos</h1>
+    <h1>Event List</h1>
     <ul class="event-list">
         {% for event in events %}
             <li>
@@ -49,24 +49,24 @@
                     {% endif %}
                     <div>
                         <h2>{{ event.name }}</h2>
-                        <p><strong>Categoria:</strong> {{ event.get_category_display }}</p>
-                        <p><strong>Formato:</strong> {{ event.get_format_display }}</p>
+                        <p><strong>Category:</strong> {{ event.get_category_display }}</p>
+                        <p><strong>Format:</strong> {{ event.get_format_display }}</p>
                     </div>
                 </div>
                 <div class="event-details">
                     <p>{{ event.description }}</p>
-                    <p><strong>Data de Início:</strong> {{ event.start_date }}</p>
-                    <p><strong>Data de Término:</strong> {{ event.end_date }}</p>
-                    <p><strong>Hora:</strong> {{ event.time }}</p>
-                    <p><strong>Local:</strong> {{ event.location }}</p>
+                    <p><strong>Start Date:</strong> {{ event.start_date }}</p>
+                    <p><strong>End Date:</strong> {{ event.end_date }}</p>
+                    <p><strong>Time:</strong> {{ event.time }}</p>
+                    <p><strong>Location:</strong> {{ event.location }}</p>
                     {% if event.address %}
-                        <p><strong>Endereço:</strong> {{ event.address }}</p>
+                        <p><strong>Address:</strong> {{ event.address }}</p>
                     {% endif %}
-                    <p><strong>Valor:</strong> R$ {{ event.value }}</p>
+                    <p><strong>Price:</strong> R$ {{ event.value }}</p>
                 </div>
             </li>
         {% empty %}
-            <li>Nenhum evento encontrado.</li>
+            <li>No events found.</li>
         {% endfor %}
     </ul>
 </body>

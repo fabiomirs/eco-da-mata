@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Novo Evento</title>
+    <title>Create New Event</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,11 +48,11 @@
     </style>
 </head>
 <body>
-    <h1>Criar Novo Evento</h1>
+    <h1>Create New Event</h1>
     <form class="event-form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Criar Evento</button>
+        <button type="submit">Create Event</button>
     </form>
 </body>
 </html>
