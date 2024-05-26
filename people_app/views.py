@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
-from .models import People
 from django.views import View
-
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+from .models import People
+from .forms import PeopleForm
 
 class PeopleList(View):
     def get(self, request):
@@ -21,6 +23,14 @@ class PeopleDetails(View):
                    "category": people.category
                    }
         return render(request, 'people_detail.html', context)
+    
+    
+    
+class PeopleCreate(CreateView):
+    template_name = "register_people.html"
+    model = People
+    form_class = PeopleForm
+    success_url = reverse_lazy('people_list')
     
     
 
