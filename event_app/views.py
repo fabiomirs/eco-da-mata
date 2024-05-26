@@ -1,7 +1,7 @@
 from django.views import View
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Event
-from .forms import EventCreationForm
+from .forms import EventForm
 
 # Create your views here.
 class EventList(ListView):
@@ -23,7 +23,14 @@ class DetailedEvent(DetailView):
 
 class EventCreation(CreateView):
     model = Event
-    form_class = EventCreationForm
+    form_class = EventForm
     template_name = 'event_creation.html'
-    success_url = '/eventos/all/'
+    success_url = '/events/all/'
+
+
+class EventUpdate(UpdateView):
+    model = Event
+    form_class = EventForm
+    template_name = 'event_update.html'
+    success_url = '/events/all'
 
