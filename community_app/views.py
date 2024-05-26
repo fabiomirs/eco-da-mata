@@ -42,3 +42,14 @@ def community_delete(request, id):
     community = get_object_or_404(Community, id=id)
     community.delete()
     return redirect('registred_communities')
+
+def community_update(request, id):
+    community = get_object_or_404(Community, id=id)
+    if request.method == "POST":
+        form = CommunityForm(request.POST, request.FILES, instance=community)
+        if form.is_valid():
+            form.save()
+            return redirect("registred_communities")
+    else:
+        form = CommunityForm(instance=community)
+    return render(request, 'cadastros/form_att.html', {"form": form})

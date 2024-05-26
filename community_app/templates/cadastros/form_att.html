@@ -1,0 +1,18 @@
+{% extends '../base.html' %}
+
+{% block title %}Atualizar Comunidade{% endblock %}
+
+{% block content %}
+<div class="form-wrapper">
+    <h3>Atualizar</h3>
+    <p class="lead">
+        Atualize os campos necessários.
+    </p>
+    <hr>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+    </form>
+</div>
+{% endblock %}
