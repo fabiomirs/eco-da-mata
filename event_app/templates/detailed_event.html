@@ -20,11 +20,24 @@
         p {
             margin: 10px 0;
         }
+        .event-image {
+            margin-bottom: 20px;
+        }
+        .event-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="event-details">
         <h1>{{ event.name }}</h1>
+        {% if event.profile_picture %}
+            <div class="event-image">
+                <img src="{{ event.profile_picture.url }}" alt="Foto de Perfil">
+            </div>
+        {% endif %}
         <p><strong>Data de Início:</strong> {{ event.start_date }}</p>
         <p><strong>Data de Término:</strong> {{ event.end_date }}</p>
         <p><strong>Hora:</strong> {{ event.time }}</p>

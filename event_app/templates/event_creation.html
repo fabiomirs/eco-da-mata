@@ -25,7 +25,8 @@
         input[type="date"],
         input[type="time"],
         textarea,
-        select {
+        select,
+        input[type="file"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -48,7 +49,7 @@
 </head>
 <body>
     <h1>Criar Novo Evento</h1>
-    <form class="event-form" method="post">
+    <form class="event-form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Criar Evento</button>
