@@ -1,7 +1,7 @@
 from django import forms
 from .models import Event
 
-class EventCreationForm(forms.ModelForm):
+class EventForm(forms.ModelForm):
     class Meta:
         model = Event
         fields = '__all__'
@@ -25,5 +25,6 @@ class EventCreationForm(forms.ModelForm):
             'profile_picture': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
             'project_FK': forms.Select(attrs={'class': 'form-control'}),
         }
-    
+
+
     
