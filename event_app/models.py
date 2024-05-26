@@ -34,7 +34,7 @@ class Event(models.Model):
     bank_name = models.CharField(max_length=25, blank=True, default='')
     pdf_link = models.URLField(blank=True, null=True, unique=True)
     questionary_link = models.URLField(blank=True, null=True, unique=True)
-    profile_picture = models.ImageField()
+    profile_picture = models.ImageField(blank=True)
     project_FK = models.ForeignKey(to="project_app.Project", on_delete = models.CASCADE)
 
 
