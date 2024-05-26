@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+        <label for= "{{form.name.id_for_label}}"> Nome </label> 
+        {{form.name}}
+
+        <label for = "{{form.description.id_for_label}}"> Descrição </label> 
+        {{form.description}}
+
+        <label for="{{ form.institutional_email.id_for_label }}">E-mail Institucional</label>
+        {{ form.institutional_email }}
+      
+        <label for="{{ form.personal_page_link.id_for_label }}">Link da Página Pessoal</label>
+        {{ form.personal_page_link }}
+      
+        <label for="{{ form.logo.id_for_label }}">Logo</label>
+        {{ form.logo }}
+      
+        <label for="{{ form.category.id_for_label }}">Categoria</label>
+        {{ form.category }}
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    </body>
+</html>
