@@ -3,8 +3,11 @@
     <h1>Notícias</h1>
     <ul>
         {% for new in news %}
-          <li class="nav-link">
-            <a href="{{ new.pk }}">{{ new.title }}</a>
+          <li>
+            <a href="{% url 'detail_news' new.pk %}">{{ new.title }}</a>
+            <form action="{% url 'update_news' new.pk %}" method="get" style="display:inline;">
+              <button type="submit" class="btn btn-primary btn-sm">Atualizar</button>
+            </form>
           </li>
         {% endfor %}
       </ul>      

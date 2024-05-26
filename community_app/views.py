@@ -53,3 +53,20 @@ def community_update(request, id):
     else:
         form = CommunityForm(instance=community)
     return render(request, 'cadastros/form_att.html', {"form": form})
+
+
+def news_update(request, id):
+    news = get_object_or_404(News, pk=id)
+    if request.method == "POST":
+        form = NewsForm(request.POST, request.FILES, instance=news)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('single_community', args=[news.community_key.id]))
+    else:
+        form = NewsForm(instance=news)
+    return render(request, 'cadastros/news_form_att.html', {"form": form})
+
+
+def news_detail(request, id):
+    news = get_object_or_404(News, pk=id)
+    return render(request, 'news_detail.html', {'news': news})
