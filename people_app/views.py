@@ -27,7 +27,7 @@ class PeopleDetails(View):
                    "personal_page_link": people.personal_page_link,
                    "category": people.category
                    }
-        return render(request, 'people_detail.html', context)
+        return render(request, 'people_details.html', context)
     
     
     
@@ -54,7 +54,7 @@ class PeopleUpdate(UpdateView):
     
     
 class PeopleDelete(DeleteView):
-    template_name = "exclui.html"
+    template_name = "people_delete.html"
     model = People 
     context_object_name = 'pessoas'
     success_url = reverse_lazy("people_list")
