@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atualizar Evento</title>
+    <title>Update Event</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,7 +25,8 @@
         input[type="date"],
         input[type="time"],
         textarea,
-        select {
+        select,
+        input[type="file"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -47,11 +48,12 @@
     </style>
 </head>
 <body>
-    <h1>Atualizar Evento</h1>
+    <h1>Update Event</h1>
     <form class="event-form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Atualizar Evento</button>
+        <button type="submit">Update Event</button>
     </form>
 </body>
 </html>
+
