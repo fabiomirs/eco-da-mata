@@ -8,7 +8,7 @@ class People(models.Model):
     description = models.CharField(max_length=800)
     institutional_email = models.EmailField(max_length=100, unique=True)
     personal_page_link = models.URLField(max_length=200, blank=True, null=True)
-    logo = models.ImageField(default=1, blank=True)
+    logo = models.ImageField(blank=True)
     category = models.CharField(max_length=20, choices=[('institution', 'Institution'), ('physical person', 'Physical person')])
     subcategory_key = models.ForeignKey(Subcategory, on_delete=models.CASCADE,default=1)
     
@@ -22,3 +22,5 @@ class Login(models.Model):
     name = models.CharField(max_length=100)
     password = models.CharField(max_length=128,unique=True)  
     people_fk = models.ForeignKey('People', on_delete=models.CASCADE,default=1)
+
+
