@@ -27,7 +27,7 @@ class UniqueSubcategory(View):
     
     
 class SubcategoryCreate(CreateView):
-    template_name = "people_register.html"
+    template_name = "subcategory_register.html"
     model = Subcategory
     form_class = SubcategoryForm
     success_url = reverse_lazy('subcategory_list')
@@ -44,7 +44,7 @@ class  SubcategoryUpdate(UpdateView):
     
     
 class SubcategoryDelete(DeleteView):
-    template_name = "people_delete.html"
+    template_name = "subcategory_delete.html"
     model = Subcategory
     context_object_name = 'subcategoria'
     success_url = reverse_lazy("subcategory_list")
