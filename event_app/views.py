@@ -1,5 +1,5 @@
-from django.views import View
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Event
 from .forms import EventForm
 
@@ -18,19 +18,31 @@ class DetailedEvent(DetailView):
     model = Event
     template_name = 'detailed_event.html'  
     context_object_name = 'event'          
-    pk_url_kwarg = 'event_id'
+    pk_url_kwarg = 'pk'
 
 
 class EventCreation(CreateView):
     model = Event
     form_class = EventForm
     template_name = 'event_creation.html'
-    success_url = '/events/all/'
+    
+    def get_success_url(self):
+        pk = self.object.pk
+        return reverse_lazy('detailed-event', kwargs={'pk': pk})
 
 
 class EventUpdate(UpdateView):
     model = Event
     form_class = EventForm
     template_name = 'event_update.html'
-    success_url = '/events/all'
+
+    def get_success_url(self):
+        pk = self.object.pk
+        return reverse_lazy('detailed-event', kwargs={'pk': pk})
+
+
+class EventDeletion(DeleteView):
+    model = Event
+    template_name = 'event_deletion.html'
+    success_url = reverse_lazy('event-list')
 
