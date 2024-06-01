@@ -22,11 +22,14 @@ def community_create(request):
     if request.method == "POST":
         form = CommunityForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-        return redirect ("registred_communities")
+            community = form.save()
+            if community.category == 'TOURIST SPOT':
+                return redirect('registred_tourist_spot')
+            else:
+                return redirect('registred_communities')
     else:
         form = CommunityForm()
-        return render(request, 'cadastros/formulario.html', {"form" : form} )    
+    return render(request, 'cadastros/formulario.html', {"form": form}) 
 
 def news_create(request):
     if request.method == "POST":
@@ -41,7 +44,11 @@ def news_create(request):
 def community_delete(request, id):
     community = get_object_or_404(Community, id=id)
     community.delete()
-    return redirect('registred_communities')
+    # Redireciona para a lista correta
+    if community.category == 'TOURIST SPOT':
+        return redirect('registred_tourist_spot')
+    else:
+        return redirect('registred_communities')
 
 def community_update(request, id):
     community = get_object_or_404(Community, id=id)
@@ -49,7 +56,11 @@ def community_update(request, id):
         form = CommunityForm(request.POST, request.FILES, instance=community)
         if form.is_valid():
             form.save()
-            return redirect("registred_communities")
+            # Redireciona para a lista correta após a atualização
+            if community.category == 'TOURIST SPOT':
+                return redirect('registred_tourist_spot')
+            else:
+                return redirect('registred_communities')
     else:
         form = CommunityForm(instance=community)
     return render(request, 'cadastros/form_att.html', {"form": form})
@@ -70,3 +81,8 @@ def news_update(request, id):
 def news_detail(request, id):
     news = get_object_or_404(News, pk=id)
     return render(request, 'news_detail.html', {'news': news})
+
+
+def registred_tourist_spot(request):
+    tourist_spot = get_list_or_404(Community, category='TOURIST SPOT')
+    return render(request, 'registred_communities.html', {'communities' : tourist_spot})
