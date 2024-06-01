@@ -66,6 +66,11 @@ def news_update(request, id):
         form = NewsForm(instance=news)
     return render(request, 'cadastros/news_form_att.html', {"form": form})
 
+def news_delete(request, id):
+    news = get_object_or_404(News, id=id)
+    community_id = news.community_key.id
+    news.delete()
+    return redirect(reverse('single_community', args=[community_id]))
 
 def news_detail(request, id):
     news = get_object_or_404(News, pk=id)
