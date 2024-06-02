@@ -13,3 +13,14 @@ class Imagem(models.Model):
     people = models.ForeignKey(People, null=True, blank=True)
     project = models.ForeignKey(Project, null=True, blank=True)
     entity = models.CharField(max_length=50, choices=[('community', 'Community'), ('event', 'Event'), ('people', 'People'), ('project', 'Project')])
+
+    def save(self, *args, **kwargs):
+        if self.community:
+            self.entity = 'community'
+        elif self.event:
+            self.entity = 'event'
+        elif self.people:
+            self.entity = 'people'
+        elif self.project:
+            self.project = 'project'
+        super(Imagem, self).save(*args, **kwargs) #Apenas colocando aqui o que Doug passou.
