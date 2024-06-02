@@ -7,11 +7,12 @@ from .views import registred_communities, registred_tourist_spot, single_communi
 urlpatterns = [
     path('get/all/', registred_communities, name="registred_communities"),
     path('get/all/tourist_spot', registred_tourist_spot, name="registred_tourist_spot"),
+    path('get/<int:id>/', single_community, name='single_community'),
     path('create/', community_create , name="create_community"),
     path('delete/<int:id>/', community_delete, name="delete_community"),
     path('put/<int:id>/', community_update, name='update_community'),
     path('news/create/', news_create, name='create_news' ),
+    path('news/delete/<int:id>', news_delete, name='delete_news'),
     path('news/put/<int:id>/', news_update, name='update_news' ),
     path('news/get/<int:id>/', news_detail, name='detail_news' ),
-    path('get/<int:id>/', single_community, name='single_community' )
 ]
