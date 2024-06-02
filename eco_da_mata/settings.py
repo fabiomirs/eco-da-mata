@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'project_app',
     'community_app',
     'people_app',
-    'subcategory_app'
+    'subcategory_app',
+    'core'
 ]
 
 MIDDLEWARE = [
