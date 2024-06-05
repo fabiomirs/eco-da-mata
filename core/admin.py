@@ -1,4 +1,4 @@
-from django.contrib import admin
+"""from django.contrib import admin
 from .models import Imagem
 from ..community_app.models import Community
 from ..event_app.models import Event
@@ -24,4 +24,4 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Community, CommunityAdmin)
 admin.site.register(Event, Event)
 admin.site.register(People, PeopleAdmin)
-admin.site.register(Project, ProjectAdmin)
+admin.site.register(Project, ProjectAdmin)"""

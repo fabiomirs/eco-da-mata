@@ -1,8 +1,8 @@
-from django.db import models
-from ..community_app.models import Community
-from ..event_app.models import Event
-from ..people_app.models import People
-from ..project_app.models import Project
+"""from django.db import models
+from community_app.models import Community
+from event_app.models import Event
+from people_app.models import People
+from project_app.models import Project
 
 
 # Create your models here.
@@ -23,4 +23,4 @@ class Imagem(models.Model):
             self.entity = 'people'
         elif self.project:
             self.project = 'project'
-        super(Imagem, self).save(*args, **kwargs) #Apenas colocando aqui o que Doug passou.
+        super(Imagem, self).save(*args, **kwargs) #Apenas colocando aqui o que Doug passou."""

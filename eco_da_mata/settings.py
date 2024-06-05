@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'community_app',
     'people_app',
     'subcategory_app',
-    'core'
+    'core',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
