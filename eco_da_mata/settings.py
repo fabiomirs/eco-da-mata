@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'community_app',
     'people_app',
     'subcategory_app',
+    'core',
     'rest_framework'
 ]
 

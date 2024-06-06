@@ -1,8 +1,29 @@
 from django.shortcuts import render, redirect
+from rest_framework import viewsets
+from .serializers import ProjectSerializer
 from .models import Project
 from .forms import ProjectForm
 
 # Create your views here.
+
+
+class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def get_all_projects(request):
     projects = Project.objects.all()
     return render(request, 'projects.html', {'projects':projects})

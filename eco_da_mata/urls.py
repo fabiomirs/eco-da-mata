@@ -2,10 +2,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from community_app.views import CommunityViewSet, NewsViewSet
+from project_app.views import ProjectViewSet
 
 
 router = DefaultRouter() #Cria rotas automáticas para ViewSets (listagem, detalhamento)
 
+router.register('project/', ProjectViewSet)
 router.register('community', CommunityViewSet)
 router.register('news', NewsViewSet)
 
