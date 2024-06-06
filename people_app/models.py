@@ -10,7 +10,7 @@ class People(models.Model):
     personal_page_link = models.URLField(max_length=200, blank=True, null=True)
     logo = models.ImageField(blank=True)
     category = models.CharField(max_length=20, choices=[('institution', 'Institution'), ('physical person', 'Physical person')])
-    subcategory_key = models.ForeignKey(Subcategory, on_delete=models.CASCADE,default=1)
+    subcategory_key = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
     
     class Meta:
         ordering = ['name']
@@ -18,9 +18,6 @@ class People(models.Model):
     def __str__(self):
         return self.name
 
-class Login(models.Model):
-    name = models.CharField(max_length=100)
-    password = models.CharField(max_length=128,unique=True)  
-    people_fk = models.ForeignKey('People', on_delete=models.CASCADE,default=1)
+
 
 

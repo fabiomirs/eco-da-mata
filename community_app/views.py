@@ -6,7 +6,16 @@ from .forms import CommunityForm, NewsForm
 from core.forms import ImageForm
 from core.models import Imagem
 from django.forms import modelformset_factory
+from .serializers import CommunitySerializer, NewsSerializer
+from rest_framework import viewsets
 
+class CommunityViewSet(viewsets.ReadOnlyModelViewSet): 
+    queryset = Community.objects.all() # Modelos passados para a view (DADOS)
+    serializer_class = CommunitySerializer # Método de serialização para a view (REGRA)
+
+class NewsViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
 
 # Create your views here.
 def registred_communities(request): 
