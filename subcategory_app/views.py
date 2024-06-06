@@ -4,6 +4,19 @@ from django.views.generic import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from .forms import SubcategoryForm
 from .models import Subcategory 
+from rest_framework import viewsets
+from .serializers import SubcategorySerializers
+
+
+
+
+class SubcategoryViewSet(viewsets.ReadOnlyModelViewSet):
+     queryset = Subcategory.objects.all()
+     serializer_class = SubcategorySerializers
+    
+
+
+
 
 
 class SubcategoryList(View):
