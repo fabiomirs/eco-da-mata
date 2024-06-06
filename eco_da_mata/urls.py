@@ -3,6 +3,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from community_app.views import CommunityViewSet, NewsViewSet
 from project_app.views import ProjectViewSet
+from people_app.views import PeopleViewSet
 
 
 router = DefaultRouter() #Cria rotas automáticas para ViewSets (listagem, detalhamento)
@@ -10,6 +11,7 @@ router = DefaultRouter() #Cria rotas automáticas para ViewSets (listagem, detal
 router.register('project/', ProjectViewSet)
 router.register('community', CommunityViewSet)
 router.register('news', NewsViewSet)
+router.register('people/', PeopleViewSet)
 
 
 urlpatterns = [

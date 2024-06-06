@@ -5,8 +5,15 @@ from django.urls import reverse_lazy
 from .models import People
 from .forms import PeopleForm
 from django.views.generic.edit import UpdateView
+from rest_framework import viewsets
+from .serializers import PeopleSerializers
 
 
+
+
+class PeopleViewSet(viewsets.ReadOnlyModelViewSet):
+     queryset = People.objects.all()
+     serializer_class = PeopleSerializers
 
 
 
