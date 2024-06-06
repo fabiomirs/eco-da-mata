@@ -1,6 +1,11 @@
 from django import forms
 from .models import Community, News
 
+
+
+
+
+
 class CommunityForm(forms.ModelForm):
     class Meta: 
         model = Community

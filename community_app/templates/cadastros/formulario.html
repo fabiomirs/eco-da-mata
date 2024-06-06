@@ -9,21 +9,33 @@
         Preencha todos os campos obrigatoriamente.
     </p>
     <hr>
-    <form method="post" enctype="multipart/form-data" >
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="name">Nome: </label>
-        {{ form.name }}
-        <label for="link">Link: </label>
-        {{ form.link }}
-        <label for="latitude">Latitude: </label>
-        {{ form.latitude }}
-        <label for="longitude">Longitude: </label>
-        {{ form.longitude }}
-        <label for="description">Descrição: </label>
-        {{ form.description }}
-        <label for="description">Categoria: </label>
-        {{ form.category }}
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <div class="styled-form">
+            <label for="name">Nome: </label>
+            {{ form.name }}
+            <label for="link">Link: </label>
+            {{ form.link }}
+            <label for="latitude">Latitude: </label>
+            {{ form.latitude }}
+            <label for="longitude">Longitude: </label>
+            {{ form.longitude }}
+            <label for="description">Descrição: </label>
+            {{ form.description }}
+            <label for="category">Categoria: </label>
+            {{ form.category }}
+
+            
+            <h2>Upload de Imagens</h2>
+            {{ formset.management_form }}
+            {% for form in formset %}
+                <div class="form-row">
+                    {{ form.image.label_tag }} {{ form.image }}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
     </form>
 </div>
 {% endblock %}

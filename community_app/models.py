@@ -8,7 +8,7 @@ class Community(models.Model):
     longitude = models.FloatField()
     description = models.TextField()
     category = models.CharField(max_length=100, choices=(('COMMUNITY', 'Comunidade'),('TOURIST SPOT', 'Ponto Turístico')), default='COMMUNITY')
-    logo = models.ImageField()
+    logo = models.ImageField(upload_to="images/")
 
     def __str__(self):
         return self.name

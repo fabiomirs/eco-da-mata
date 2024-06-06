@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.urls import reverse
 from .models import Community, News
 from .forms import CommunityForm, NewsForm
-
+from core.forms import ImageForm
+from core.models import Imagem
+from django.forms import modelformset_factory
 
 
 # Create your views here.
@@ -15,21 +17,35 @@ def registred_communities(request):
 def single_community(request, id):
     community = get_object_or_404(Community, pk=id)
     news = News.objects.filter(community_key=id)
-    return render(request, 'single_community.html', {'community': community, 'news': news} )
+    images = Imagem.objects.filter(community=community)
+    return render(request, 'single_community.html', {'community': community, 'news': news, 'images': images})
+
 
 
 def community_create(request):
+    ImageFormSet = modelformset_factory(Imagem, form=ImageForm, extra=5)
+
     if request.method == "POST":
         form = CommunityForm(request.POST, request.FILES)
-        if form.is_valid():
+        formset = ImageFormSet(request.POST, request.FILES, queryset=Imagem.objects.none())
+
+        if form.is_valid() and formset.is_valid():
             community = form.save()
+            for form in formset.cleaned_data:
+                if form:
+                    image = form['image']
+                    photo = Imagem(community=community, image=image)
+                    photo.save()
+
             if community.category == 'TOURIST SPOT':
                 return redirect('registred_tourist_spot')
             else:
                 return redirect('registred_communities')
     else:
         form = CommunityForm()
-    return render(request, 'cadastros/formulario.html', {"form": form}) 
+        formset = ImageFormSet(queryset=Imagem.objects.none())
+
+    return render(request, 'cadastros/formulario.html', {"form": form, "formset": formset})
 
 def news_create(request):
     if request.method == "POST":
@@ -39,7 +55,7 @@ def news_create(request):
         return redirect(reverse('single_community', args=[news.community_key.id]))
     else:
         form = NewsForm()
-        return render(request, 'cadastros/news_form.html', {"form" : form} )    
+        return render(request, 'cadastros/news_form.html', {"form" : form} )
  
 def community_delete(request, id):
     community = get_object_or_404(Community, id=id)
