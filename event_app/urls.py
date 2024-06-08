@@ -1,12 +1,7 @@
-from django.urls import path, include
+from django.urls import path
 from .views import *
-from rest_framework.routers import DefaultRouter
-
-router = DefaultRouter()
-router.register('my-api', EventViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
     path('all/', EventList.as_view(), name='event-list'),
     path('<int:pk>/', DetailedEvent.as_view(), name='detailed-event'),
     path('create/', EventCreation.as_view(), name='create-event'),
