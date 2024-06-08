@@ -4,6 +4,7 @@ from eco_da_mata import settings
 from rest_framework.routers import DefaultRouter
 from community_app.views import CommunityViewSet, NewsViewSet
 from project_app.views import ProjectViewSet
+from event_app.views import EventViewSet
 
 from django.conf.urls.static import static
 
@@ -17,6 +18,7 @@ router.register('project/', ProjectViewSet)
 router.register('community', CommunityViewSet)
 router.register('news', NewsViewSet)
 router.register('people/', PeopleViewSet)
+router.register('Event/', EventViewSet)
 router.register('subcategory/', SubcategoryViewSet)
 
 
