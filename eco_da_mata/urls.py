@@ -29,17 +29,17 @@ schema_view = get_schema_view(
         default_version="v1",
         description="Documentação da API do projeto Eco da mata mobile app",
         terms_of_service="http://admin.site.urls/terms/", #verificar se o site é esse mesmo
-        contact=openapi.contact(email=""), #falta adicionar e-mail
-        license=openapi.license(name=""), #falta adicionar licensa
+        contact=openapi.Contact(email=""), #falta adicionar e-mail
+        license=openapi.License(name=""), #falta adicionar licensa
     ),
     public = True,
-    Permission_classes = (permissions.AllowAny,),
+    permission_classes = (permissions.AllowAny,),
 )
 
 
 urlpatterns = [
-    path('swagger<formats>/', schema_view.without_ui(cache_timeout=0), name='schema=json'),
-    path('swagger/', schema_view.with_ui('Swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('swagger<formats>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
