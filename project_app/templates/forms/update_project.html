@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Eco da Mata - Atualizar Projeto</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin: 10px 0 5px;
+        font-weight: bold;
+      }
+
+      input, textarea, select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #27ae60;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #218c53;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Atualizar Projeto</h1>
+      <form method="post">
+        {% csrf_token %}
+        <label for="name">Insira o nome do projeto:</label>
+        {{ project_update.name }}
+
+        <label for="description">Insira a descrição:</label>
+        {{ project_update.description }}
+
+        <label for="social_network_link">Rede social para contato:</label>
+        {{ project_update.social_network_link }}
+
+        <label for="telephone_number">Número de telefone:</label>
+        {{ project_update.telephone_number }}
+
+        <label for="email">Email para contato:</label>
+        {{ project_update.email }}
+
+        <label for="community_key">A qual comunidade o projeto é associado:</label>
+        {{ project_update.community_key }}
+
+        <button type="submit">Atualizar</button>
+      </form>
+    </div>
+  </body>
+</html>
