@@ -24,7 +24,7 @@ router.register('subcategory/', SubcategoryViewSet)
 
 urlpatterns = [
 
-   # path('api/', include(router.urls)),
+     path('api/', include(router.urls)),
      path('admin/', admin.site.urls),
      path('community/', include('community_app.urls')),
 #    path('projetos/', include('project_app.urls')),
