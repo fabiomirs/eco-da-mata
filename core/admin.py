@@ -16,13 +16,13 @@ class EventAdmin(admin.ModelAdmin):
     inlines = [ImagemInline]
 
 class PeopleAdmin(admin.ModelAdmin):
-    inlines = [ImagemInline]
+    inlines = [ImagemInline]'''
 
 class ProjectAdmin(admin.ModelAdmin):
-    inlines = [ImagemInline]'''
+    inlines = [ImagemInline]
 
 admin.site.register(Community, CommunityAdmin)
 
 #admin.site.register(Event, EventAdmin)
 #admin.site.register(People, PeopleAdmin)
-#admin.site.register(Project, ProjectAdmin)
+admin.site.register(Project, ProjectAdmin)
