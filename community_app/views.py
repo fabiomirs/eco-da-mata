@@ -9,11 +9,11 @@ from django.forms import modelformset_factory
 from .serializers import CommunitySerializer, NewsSerializer
 from rest_framework import viewsets
 
-class CommunityViewSet(viewsets.ReadOnlyModelViewSet): 
-    queryset = Community.objects.all() # Modelos passados para a view (DADOS)
-    serializer_class = CommunitySerializer # Método de serialização para a view (REGRA)
+class CommunityViewSet(viewsets.ModelViewSet):  
+    queryset = Community.objects.all()
+    serializer_class = CommunitySerializer
 
-class NewsViewSet(viewsets.ReadOnlyModelViewSet):
+class NewsViewSet(viewsets.ModelViewSet):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
 
