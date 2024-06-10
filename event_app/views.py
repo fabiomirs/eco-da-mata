@@ -2,8 +2,15 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.urls import reverse_lazy
 from .models import Event
 from .forms import EventForm
+from rest_framework import viewsets
+from .serializers import EventSerializers
+
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializers
 
 # Create your views here.
+
 class EventList(ListView):
     model = Event
     template_name = 'event_list.html'
