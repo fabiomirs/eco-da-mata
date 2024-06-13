@@ -1,5 +1,5 @@
 from django import forms
-from .models import People
+from .models import People, Subcategory
 
 
 class PeopleForm(forms.ModelForm):
@@ -13,4 +13,13 @@ class PeopleForm(forms.ModelForm):
                    'category': forms.Select(choices=[('institution', 'Instituição'), ('physical_person', 'Pessoa Física')])
                    }
        
+       
+
+class SubcategoryForm(forms.ModelForm):
+    class Meta:
+        model = Subcategory
+        fields = ['title', 'category']
+        widgets = {'description': forms.Textarea(attrs={'rows': 4, 'cols': 40}),
+                   'category': forms.Select(choices=[('institution', 'Instituição'), ('physical_person', 'Pessoa Física')])
+                   }
        
