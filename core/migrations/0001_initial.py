@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
         ('event_app', '0002_alter_event_profile_picture'),
         ('project_app', '0001_initial'),
         ('community_app', '0004_alter_community_logo'),
-        ('people_app', '0005_alter_people_logo'),
+        ('people_app', '0001_initial'),
     ]
 
     operations = [
