@@ -4,9 +4,10 @@ from eco_da_mata import settings
 from rest_framework.routers import DefaultRouter
 from community_app.views import CommunityViewSet, NewsViewSet
 from project_app.views import ProjectViewSet
-from event_app.views import EventViewSet
+from event_app.views import EventViewSet, ReviewViewSet
 from django.conf.urls.static import static
 from people_app.views import PeopleViewSet, SubcategoryViewSet
+from core.views import ImageViewSet
 
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -15,12 +16,14 @@ from drf_yasg import openapi
 router = DefaultRouter() #Cria rotas automáticas para ViewSets (listagem, detalhamento)
 
 
-router.register('project/', ProjectViewSet)
+router.register('project', ProjectViewSet)
 router.register('community', CommunityViewSet)
 router.register('news', NewsViewSet)
-router.register('people/', PeopleViewSet)
-router.register('Event/', EventViewSet)
-router.register('subcategory/', SubcategoryViewSet)
+router.register('people', PeopleViewSet)
+router.register('event', EventViewSet)
+router.register('review', ReviewViewSet)
+router.register('subcategory', SubcategoryViewSet)
+router.register('images', ImageViewSet)
 
 
 schema_view = get_schema_view(

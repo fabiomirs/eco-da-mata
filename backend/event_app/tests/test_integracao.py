@@ -4,7 +4,6 @@ from django.urls import reverse
 from event_app.models import Event
 from datetime import date
 from rest_framework import status
-from event_app.serializers import EventSerializers
 from project_app.models import Project
 from community_app.models import Community
 

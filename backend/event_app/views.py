@@ -1,14 +1,17 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Event
+from .models import Event, Review
 from .forms import EventForm
 from rest_framework import viewsets
-from .serializers import EventSerializers
+from .serializers import EventSerializers, ReviewSerializers
 
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializers
 
+class ReviewViewSet(viewsets.ModelViewSet):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializers
 # Create your views here.
 
 class EventList(ListView):

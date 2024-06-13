@@ -6,14 +6,9 @@ from .forms import ProjectForm
 
 # Create your views here.
 
-
 class ProjectViewSet(ReadOnlyModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
-
-
-
-
 
 def get_all_projects(request):
     projects = Project.objects.all()

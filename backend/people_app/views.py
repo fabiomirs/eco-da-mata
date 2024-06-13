@@ -13,8 +13,6 @@ from .serializers import PeopleSerializers, SubcategorySerializers
 class SubcategoryViewSet(viewsets.ReadOnlyModelViewSet):
      queryset = Subcategory.objects.all()
      serializer_class = SubcategorySerializers
-    
-
 
 
 class SubcategoryList(View):
