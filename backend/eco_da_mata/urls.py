@@ -46,28 +46,9 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('community/', include('community_app.urls')),
-#    path('projetos/', include('project_app.urls')),
-#    path('events/', include('event_app.urls')),
-#    path('pessoas/',include('people_app.urls')),
-#    path('subcategoria',include('subcategory_app.urls'))
-
 ]
 
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
 
-
-"""
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('community/', include('community_app.urls')),
-    path('projetos/', include('project_app.urls')),
-    path('events/', include('event_app.urls')),
-    path('pessoas/',include('people_app.urls')),
-    path('subcategoria',include('subcategory_app.urls'))
-]
-"""
