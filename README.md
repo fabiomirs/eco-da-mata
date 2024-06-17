@@ -4,7 +4,7 @@
 
 1. **Clone o repositório:**
     ```bash
-    git clone https://github.com/Eco-da-Mata/mobileUEFS
+    git clone https://github.com/Eco-da-Mata/mobileUEFS.git
     ```
 
 2. **Caminhe para o diretório `backend/`:**
@@ -47,7 +47,7 @@ Se você já estiver no ambiente virtual, basta executar `make setup` para insta
 ### Exemplo Sequencial
 
 ```bash
-git clone https://github.com/Eco-da-Mata/mobileUEFS
+git clone https://github.com/Eco-da-Mata/mobileUEFS.git
 cd eco-da-mata/backend/
 make create-venv
 source venv/bin/activate
