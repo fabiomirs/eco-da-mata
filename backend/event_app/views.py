@@ -5,11 +5,11 @@ from .forms import EventForm
 from rest_framework import viewsets
 from .serializers import EventSerializers, ReviewSerializers
 
-class EventViewSet(viewsets.ModelViewSet):
+class EventViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializers
 
-class ReviewViewSet(viewsets.ModelViewSet):
+class ReviewViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializers
 # Create your views here.
