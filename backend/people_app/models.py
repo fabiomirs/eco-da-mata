@@ -17,7 +17,7 @@ class People(models.Model):
     description = models.CharField(max_length=800)
     institutional_email = models.EmailField(max_length=100, unique=True)
     personal_page_link = models.URLField(max_length=200, blank=True, null=True)
-    logo = models.ImageField(blank=True)
+    logo = models.ImageField(blank=True, upload_to="images/")
     category = models.CharField(max_length=20, choices=[('institution', 'Institution'), ('physical person', 'Physical person')])
     subcategory_key = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
     

@@ -14,7 +14,3 @@ class Project(models.Model):
     def __str__(self):
         return self.name
     
-'''class Management(models.Model):
-    project = models.ForeignKey(to=Project, on_delete=models.CASCADE)
-    people = models.ForeignKey(to="people_app.People", on_delete=models.CASCADE) 
-'''

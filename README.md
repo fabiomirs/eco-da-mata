@@ -70,6 +70,14 @@ A porta padrão do Django é `8000`. Se quiser alterar, basta rodar:
 python manage.py runserver ip:porta
 ```
 
+Para acessar a plataforma admin, você precisa ter um superusuário. Para isso, basta rodar dentro do diretório backend/:
+
+```bash
+python manage.py createsuperuser
+```
+
+Informe os dados solicitados e você poderá acessar a plataforma admin.
+
 ## Escolhas de desenvolvimento
 
 - O banco de dados utilizado é o `db.sqlite3`, que permite o CRUD dentro do próprio servidor web. Escolhido pela facilidade de implementação. Para alterar, basta acessar o arquivo `backend/eco_da_mata/settings.py` e modificar a constante `DATABASES`.
