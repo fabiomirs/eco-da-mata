@@ -30,9 +30,9 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Eco da mata API",
         default_version="v1",
-        description="Documentação da API do projeto Eco da mata mobile app",
-        terms_of_service="http://admin.site.urls/terms/", #verificar se o site é esse mesmo
-        contact=openapi.Contact(email=""), #falta adicionar e-mail
+        description="Documentação da API do projeto Eco da Mata",
+        terms_of_service="",
+        contact=openapi.Contact(email="dojesus@ecomp.uefs.br"), 
         license=openapi.License(name=""), #falta adicionar licensa
     ),
     public = True,
