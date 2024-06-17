@@ -2,6 +2,8 @@
 
 ## Como rodar o servidor
 
+O Django é um servidor escrito em Python. Como ainda estamos trabalhando com ambientes virtuais, e não Docker, é necessário que você tenha o Python instalado em sua máquina e adicionado ao PATH. Recomendamos o Python 3.10.
+
 1. **Clone o repositório:**
     ```bash
     git clone https://github.com/Eco-da-Mata/mobileUEFS.git
@@ -78,11 +80,18 @@ python manage.py createsuperuser
 
 Informe os dados solicitados e você poderá acessar a plataforma admin.
 
-## Escolhas de desenvolvimento
+## Escolhas no ambiente de desenvolvimento
 
 - O banco de dados utilizado é o `db.sqlite3`, que permite o CRUD dentro do próprio servidor web. Escolhido pela facilidade de implementação. Para alterar, basta acessar o arquivo `backend/eco_da_mata/settings.py` e modificar a constante `DATABASES`.
 - O servidor está com paginação implementada de 5 itens por página. Para alterar, basta acessar o arquivo `backend/eco_da_mata/settings.py` e modificar o valor em `REST_FRAMEWORK['PAGE_SIZE']`.
 - As APIs só oferecem rotas do tipo GET, pois o CRUD completo acontecerá na plataforma admin.
+
+## Escolhas no ambiente de produção (ainda não feito)
+
+- Uso do banco de dados PostgreSQL.
+- Uso do storage Supabase.
+- Uso de Docker para criação de ambiente.
+- Uso do Gunicorn (servidor WSGI (Web Server Gateway Interface) para aplicações web em Python).
 
 ## Utilitários
 
